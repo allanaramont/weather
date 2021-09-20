@@ -2,5 +2,7 @@
   "back": "Voltar",
   "message404": "Página não encontrada",
   "messageError": "Erro no serviço, por favor tentar novamente mais tarde.",
-  "today": "Hoje"
+  "today": "Hoje",
+  "search": "Pesquisar",
+  "locationSupport": "Geolocalização não suportada"
 }

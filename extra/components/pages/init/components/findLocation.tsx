@@ -1,5 +1,6 @@
-import { useState } from "react";
+import {useEffect, useState} from "react";
 import { InputBase } from "@material-ui/core";
+import {useDispatch} from "react-redux";
 
 //Components
 import { Grid7 } from "../../../common/grid";
@@ -10,15 +11,43 @@ import intl from "react-intl-universal";
 //CSS
 import { useFindLocationCSS } from "../style/findLocation";
 
+//Hooks
+import {useNavigator} from "../../../../hooks/useNavigator";
+
 //Icons
  import SearchIcon from '@material-ui/icons/Search';
 
 //Utils
 import { FindLocationService } from "../utils/findLocationService";
+import {usePosition} from "../../../../hooks/useGeoLocation";
+
+//Services
+import {FetchCityName} from "../../../../services/openCage/fetchCityName";
+import {FetchWeather} from "../../../../services/openWeather/fetchWeather";
 
 export function FindLocation(){
     const classes = useFindLocationCSS();
-    const [name,setName] = useState('')
+    const geo = usePosition();
+    const language = useNavigator();
+    const [city,setCity] = useState('');
+    const [weather,setWeather] = useState({});
+    const dispatch = useDispatch();
+
+    //init
+    useEffect(()=>{
+        if(geo.latitude !== 0 && geo.longitude !== 0){
+            FetchCityName(geo.latitude,geo.longitude,String(language.split("-", 1)), dispatch,setCity)
+        }
+    },[geo])
+
+    //Change temp
+    useEffect(()=>{
+        if(city !== ''){
+            FetchWeather(city,dispatch,setWeather)
+        }
+    },[city])
+
+    console.log('weather',weather)
 
     return(
         <Grid7>
@@ -30,12 +59,12 @@ export function FindLocation(){
                         input: classes.inputInput,
                     }}
                     onChange={(event)=>{
-                         setName(event.target.value)
+                        setCity(event.target.value)
                     }}
                     inputProps={{ 'aria-label': 'search' }}
                 />
                 <SearchIcon style={{cursor:'pointer'}}
-                            onClick={()=>{FindLocationService(name)}}/>
+                            onClick={()=>{FindLocationService(city)}}/>
             </div>
 
         </Grid7>
