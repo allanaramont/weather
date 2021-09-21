@@ -1,7 +1,8 @@
 export interface TodayWeatherInterface {
     temp:number,
+    id:number,
     description:string,
-    typeTemp:string,
+    unit:string,
     windDeg:number,
     windSpeed:number,
     humidity:number,

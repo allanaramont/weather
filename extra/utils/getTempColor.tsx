@@ -3,14 +3,12 @@ import {blueColor, redColor, yellowColor} from "../config/colors";
 //Interface
 import {ResultTempInterface} from "../interfaces/resultTemp";
 
-//Utils
-import {ConvertTemp} from "./convertTemp";
-
 export const getTempColor = (value: ResultTempInterface) => {
-    if(value.temp > ConvertTemp({temp: 35,unit:value.unit})){
+    console.log(value)
+    if(value.unit === 'c' ? value.temp > 35 : value.temp > 95){
         return redColor
     }
-    else if (value.temp < ConvertTemp({temp: 15,unit:value.unit})){
+    else if (value.unit === 'c' ? value.temp < 15 : value.temp < 59){
         return blueColor
     }
     else{

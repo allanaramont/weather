@@ -10,12 +10,15 @@ import {ErrorGeneric} from "../../utils/errorGeneric";
 import {baseOpenWeatherAPI, keyOpenWeatherAPI} from "../../config/services";
 
 export function FetchWeather (city:string,dispatch:AppDispatch,setWeather:Dispatch<SetStateAction<Array<any>>>,language:string){
+    const type = language === 'pt' ? 'metric' : 'imperial'
     fetch(
         baseOpenWeatherAPI
         + city
         + '&lang='
         + language
-        + '&units=metric&APPID='
+        + '&units='
+        + type
+        +'&APPID='
         + keyOpenWeatherAPI
     ).then(res=>res.json())
         .then((data)=>{

@@ -11,23 +11,25 @@ import intl from "react-intl-universal";
 //Utils
 import {getTempColor} from "../../../../utils/getTempColor";
 import {getTempUnit} from "../../../../utils/getTempUnit";
+import {getWindSpeedInKilometers} from "../../../../utils/getWindSpeedInKilometers";
+import {getWindDirection} from "../../../../utils/getWindDirection";
+import {getWeatherIcon} from "../../../../utils/getWeatherIcon";
 
 //Interface
 import {TodayWeatherInterface} from "../../../../interfaces/todayWeather";
-import {getWindSpeedInKilometers} from "../../../../utils/getWindSpeedInKilometers";
-import {getWindDirection} from "../../../../utils/getWindDirection";
 
 export function TodayWeather(props:TodayWeatherInterface){
     const theme = useTheme();
+    const weatherIcon = getWeatherIcon(props.id)
 
     return(
         <Grid12 style={{
             paddingTop:theme.spacing(2),
             paddingBottom:theme.spacing(2),
-            backgroundColor:alpha(getTempColor({temp:props.temp,unit:props.typeTemp}), 0.5)
+            backgroundColor:alpha(getTempColor({temp:props.temp,unit:props.unit}), 0.5)
         }}>
             <Grid6 justifyContent={'center'}>
-                {}
+                <div data-icon={`${weatherIcon}`} style={{justifyContent:'center',fontSize:310,display:'flex',marginLeft:50,width:'50%'}} />
             </Grid6>
             <Grid6>
                 <Grid12>
@@ -41,7 +43,7 @@ export function TodayWeather(props:TodayWeatherInterface){
                                           cursor:'pointer'
                                       }}
                                       onClick={props.click}>
-                        {Number(props.temp).toFixed(0)}{getTempUnit(props.typeTemp)}
+                        {Number(props.temp).toFixed(0)}{getTempUnit(props.unit)}
                     </TypographyCustom>
                 </Grid12>
                 <Grid12>

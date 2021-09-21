@@ -1,4 +1,4 @@
-import React, {useMemo, useState} from "react";
+import React, {useEffect, useMemo, useState} from "react";
 import { useTheme } from "@material-ui/core";
 import { alpha } from "@material-ui/core/styles";
 
@@ -7,36 +7,44 @@ import { GridNumber } from '../extra/components/common/grid'
 import { ImageBackgroundInit } from "../extra/components/pages/init/components/imageBackgroud";
 import { FindLocation } from "../extra/components/pages/init/components/findLocation";
 import { TodayWeather } from "../extra/components/pages/init/components/todayWeather";
+import {AfterWeather} from "../extra/components/pages/init/components/afterWeather";
 
 //Hooks
 import { useWindowSize } from "../extra/hooks/useWindowsSize";
-import {AfterWeather} from "../extra/components/pages/init/components/afterWeather";
+import {useNavigator} from "../extra/hooks/useNavigator";
+
+//Utils
 import {ChangeTemp} from "../extra/utils/changeTemp";
 
 //Interfaces
 import {ResultTempInterface} from "../extra/interfaces/resultTemp";
-import {useNavigator} from "../extra/hooks/useNavigator";
+
 
 export default function Home(){
     const size = useWindowSize();
     const theme = useTheme();
     const language = useNavigator();
-    const unitInit = language === 'pt-BR' ? 'c' : 'f';
+    const [unitInit,setUnitInit] = useState('');
     const [weather,setWeather]:any = useState([]);
-    const [today,setToday]:any = useState({temp: 0,description: "", typeTemp: "", windDeg: 0, windSpeed: 0, humidity: 0, pressure: 0});
+    const [today,setToday]:any = useState({temp: 0,description: "", typeTemp: "", windDeg: 0, windSpeed: 0,
+        humidity: 0, pressure: 0});
     const [tomorrow,setTomorrow] = useState<ResultTempInterface>({temp: 0, unit: ""});
     const [afterTomorrow,setAfterTomorrow] = useState<ResultTempInterface>({temp: 0, unit: ""});
 
-    console.log('today',today)
-    console.log('tomorrow',tomorrow)
-    console.log('afterTomorrow',afterTomorrow)
+    //Language
+    useEffect(()=>{
+        if(language !== ''){
+            setUnitInit(language === 'pt-BR' ? 'c' : 'f')
+        }
+    },[language])
 
     useMemo(() =>{
         if(weather.length > 0){
             setToday({
                 temp: weather[0].main.temp,
+                id: weather[0].weather[0].id,
                 description: weather[0].weather[0].description,
-                typeTemp: unitInit,
+                unit: unitInit,
                 windDeg: weather[0].wind.deg,
                 windSpeed: weather[0].wind.speed,
                 humidity: weather[0].main.humidity,
@@ -74,7 +82,8 @@ export default function Home(){
                 {Object.keys(today).length > 0 && tomorrow.temp > 0 && afterTomorrow.temp > 0 ?
                     <>
                         <TodayWeather temp={today.temp}
-                                      typeTemp={'c'}
+                                      id={today.id}
+                                      unit={today.unit}
                                       description={today.description}
                                       windDeg={today.windDeg}
                                       windSpeed={today.windSpeed}
