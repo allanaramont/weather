@@ -4,7 +4,6 @@ import {blueColor, redColor, yellowColor} from "../config/colors";
 import {ResultTempInterface} from "../interfaces/resultTemp";
 
 export const getTempColor = (value: ResultTempInterface) => {
-    console.log(value)
     if(value.unit === 'c' ? value.temp > 35 : value.temp > 95){
         return redColor
     }
