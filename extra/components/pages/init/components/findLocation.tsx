@@ -42,7 +42,7 @@ export function FindLocation(props:{setWeather:Dispatch<SetStateAction<Array<any
     //Change temp
     useEffect(()=>{
         if(city !== ''){
-            FetchWeather(city,dispatch,props.setWeather)
+            FetchWeather(city,dispatch,props.setWeather,String(language.split("-", 1)))
         }
     },[city])
 

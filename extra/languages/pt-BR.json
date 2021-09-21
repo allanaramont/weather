@@ -8,5 +8,9 @@
   "search": "Pesquisar",
   "locationSupport": "Geolocalização não suportada",
   "celsius": "°C",
-  "fahrenheit": "°F"
+  "fahrenheit": "°F",
+  "wind": "Vento",
+  "windUnit": "km/h",
+  "humidity": "Humidade",
+  "pressure": "Pressão"
 }

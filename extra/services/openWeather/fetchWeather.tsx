@@ -9,10 +9,12 @@ import {ErrorGeneric} from "../../utils/errorGeneric";
 //Constants
 import {baseOpenWeatherAPI, keyOpenWeatherAPI} from "../../config/services";
 
-export function FetchWeather (city:string,dispatch:AppDispatch,setWeather:Dispatch<SetStateAction<Array<any>>>){
+export function FetchWeather (city:string,dispatch:AppDispatch,setWeather:Dispatch<SetStateAction<Array<any>>>,language:string){
     fetch(
         baseOpenWeatherAPI
         + city
+        + '&lang='
+        + language
         + '&units=metric&APPID='
         + keyOpenWeatherAPI
     ).then(res=>res.json())
