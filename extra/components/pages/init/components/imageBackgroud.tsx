@@ -1,10 +1,8 @@
 import {useState} from "react";
+import {Grid} from "@material-ui/core";
 
 //Interface
 import { ImageBackgroundInitInterface } from "../../../../interfaces/imageBackground";
-
-//Components
-import { Grid12 } from "../../../common/grid";
 
 //Redux
 import {useDispatch} from "react-redux";
@@ -15,6 +13,7 @@ import {FetchBackgroundImage} from "../../../../services/bing/fetchBackgroundIma
 //Hooks
 import {useNavigator} from "../../../../hooks/useNavigator";
 
+
 export function ImageBackgroundInit(props:ImageBackgroundInitInterface){
     const dispatch = useDispatch();
     const language = useNavigator();
@@ -24,9 +23,16 @@ export function ImageBackgroundInit(props:ImageBackgroundInitInterface){
     console.log('img',img)
 
     return(
-        <Grid12 justifyContent={'center'}>
+        <Grid
+            container
+            spacing={0}
+            direction="column"
+            alignItems="center"
+            justifyContent="center"
+            style={{ minHeight: '100vh' }}
+        >
             {/*construir o backgroundImage nessa div*/}
                 {props.children}
-        </Grid12>
+        </Grid>
     )
 }

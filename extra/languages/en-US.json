@@ -12,5 +12,7 @@
   "wind": "Wind",
   "windUnit": "m/h",
   "humidity": "Humidity",
-  "pressure": "Pressure"
+  "pressure": "Pressure",
+  "notFoundLocation": "Location not found",
+  "loading": "Loading..."
 }

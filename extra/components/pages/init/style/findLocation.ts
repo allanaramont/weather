@@ -8,20 +8,21 @@ export const useFindLocationCSS = makeStyles((theme: Theme) =>
         search: {
             position: 'relative',
             borderRadius: theme.shape.borderRadius,
-            backgroundColor: alpha(theme.palette.common.white, 0.15),
+            backgroundColor: alpha(theme.palette.background.paper, 0.50),
             '&:hover': {
-                backgroundColor: alpha(theme.palette.common.white, 0.25),
+                backgroundColor: alpha(theme.palette.background.paper, 0.80),
             },
         },
         inputRoot: {
-            color: 'inherit'
+            color: 'inherit',
+            width: '100%',
         },
         inputInput: {
-            margin: theme.spacing(1, 1, 1, 0),
+            margin: theme.spacing(1, 0, 1, 0),
             width: '100%',
         },
         inputIcon: {
-            margin: theme.spacing(1.5, 0, 0, 1),
+            margin: theme.spacing(1.5, 1, 0, 1)
         }
     }),
 );

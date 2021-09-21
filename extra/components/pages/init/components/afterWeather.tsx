@@ -22,7 +22,10 @@ export function AfterWeather(props:AfterWeatherInterface){
         <Grid12 style={{
             paddingTop:theme.spacing(2),
             paddingBottom:theme.spacing(2),
-            backgroundColor:alpha(getTempColor({temp:props.temp,unit:props.typeTemp}), props.backgroundPotion)
+            backgroundColor:alpha(getTempColor({temp:props.temp,unit:props.typeTemp}), props.backgroundPotion),
+            height: 100,
+            borderBottomRightRadius: props.end ? theme.shape.borderRadius : 0,
+            borderBottomLeftRadius: props.end ? theme.shape.borderRadius : 0
         }}>
             <Grid6/>
             <Grid6>

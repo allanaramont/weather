@@ -1,10 +1,10 @@
 import {Dispatch, SetStateAction, useEffect, useState} from "react";
-import {InputBase, useTheme} from "@material-ui/core";
+import {Grid, InputBase, useTheme} from "@material-ui/core";
 import {useDispatch} from "react-redux";
 import {alpha} from "@material-ui/core/styles";
 
 //Components
-import {Grid10, Grid12, GridNumber} from "../../../common/grid";
+import {Grid12, GridNumber} from "../../../common/grid";
 
 //I18N
 import intl from "react-intl-universal";
@@ -29,13 +29,16 @@ export function FindLocation(props:{setWeather:Dispatch<SetStateAction<Array<any
     const theme = useTheme();
     const language = useNavigator();
     const [city,setCity] = useState('');
-    const [name,setName] = useState('');
+    const [name,setName] = useState(intl.get('loading'));
     const dispatch = useDispatch();
 
     //init
     useEffect(()=>{
-        if(geo.latitude !== 0 && geo.longitude !== 0 && language !== ''){
+        if(geo.latitude !== 0 && geo.longitude !== 1 && language !== ''){
             FetchCityName(geo.latitude,geo.longitude,String(language.split("-", 1)), dispatch,setCity)
+        }
+        else if(geo.latitude === 0 && geo.longitude === 0){
+            setName(intl.get('notFoundLocation'))
         }
     },[geo])
 
@@ -45,26 +48,31 @@ export function FindLocation(props:{setWeather:Dispatch<SetStateAction<Array<any
             setName(city)
             FetchWeather(city,dispatch,props.setWeather,String(language.split("-", 1)))
         }
+        else if (name === intl.get('notFoundLocation')){
+            props.setWeather([])
+        }
     },[city])
 
     return(
         <Grid12 justifyContent={'center'}
                 style={{
-            paddingTop:theme.spacing(2),
-            paddingBottom:theme.spacing(2),
-            backgroundColor:alpha('#FFFFFF', 0.5)
+                    paddingTop:theme.spacing(2),
+                    paddingBottom:theme.spacing(2),
+                    backgroundColor:alpha('#FFFFFF', 0.95),
+                    borderTopRightRadius: theme.shape.borderRadius,
+                    borderTopLeftRadius: theme.shape.borderRadius
         }}>
-            <Grid10>
+            <GridNumber number={10}>
                 <div className={classes.grow}>
                     <div className={classes.search}>
                         <Grid12>
-                            <GridNumber number={1}>
+                            <Grid>
                                 <SearchIcon className={classes.inputIcon}
                                     onClick={()=>{setCity(name)}}/>
-                            </GridNumber>
-                            <GridNumber number={10}>
+                            </Grid>
+                            <GridNumber number={11}>
                                 <InputBase
-                                    defaultValue={name}
+                                    value={name}
                                     placeholder={intl.get('search')}
                                     classes={{
                                         root: classes.inputRoot,
@@ -79,7 +87,7 @@ export function FindLocation(props:{setWeather:Dispatch<SetStateAction<Array<any
                         </Grid12>
                     </div>
                 </div>
-            </Grid10>
+            </GridNumber>
         </Grid12>
     )
 }

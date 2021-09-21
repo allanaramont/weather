@@ -7,5 +7,5 @@ export interface TodayWeatherInterface {
     windSpeed:number,
     humidity:number,
     pressure:number
-    click:React.MouseEventHandler
+    click?:React.MouseEventHandler
 }

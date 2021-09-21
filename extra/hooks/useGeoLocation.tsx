@@ -11,7 +11,7 @@ export const usePosition = () => {
     const dispatch = useDispatch();
     const [position, setPosition] = useState({
         latitude: 0,
-        longitude: 0
+        longitude: 1
     });
 
     const onChange = ({coords}:GeolocationPosition) => {

@@ -8,11 +8,13 @@ import {useWindowSize} from "../../hooks/useWindowsSize";
 import {GridInterface, GridInterfaceNumber} from "../../interfaces/grid";
 
 export function GridNumber (props:GridInterfaceNumber){
+    const size = useWindowSize()
     return(
         <Grid
             {...props}
             container
             item
+            justifyContent={props.justifyContent ?? size.webFlexStart}
             xs={props.number}
             xl={props.number}
             sm={props.number}
@@ -32,6 +34,7 @@ export function Grid1 (props:GridInterface){
             {...props}
             container
             item
+            justifyContent={props.justifyContent ?? size.webFlexStart}
             xs={size.grid1}
             xl={size.grid1}
             sm={size.grid1}
@@ -49,6 +52,7 @@ export function Grid2 (props:GridInterface){
             {...props}
             container
             item
+            justifyContent={props.justifyContent ?? size.webFlexStart}
             xs={size.grid2}
             xl={size.grid2}
             sm={size.grid2}
@@ -66,6 +70,7 @@ export function Grid3 (props:GridInterface){
             {...props}
             container
             item
+            justifyContent={props.justifyContent ?? size.webFlexStart}
             xs={size.grid3}
             xl={size.grid3}
             sm={size.grid3}
@@ -83,6 +88,7 @@ export function Grid4 (props:GridInterface){
             {...props}
             container
             item
+            justifyContent={props.justifyContent ?? size.webFlexStart}
             xs={size.grid4}
             xl={size.grid4}
             sm={size.grid4}
@@ -100,6 +106,7 @@ export function Grid5 (props:GridInterface){
             {...props}
             container
             item
+            justifyContent={props.justifyContent ?? size.webFlexStart}
             xs={size.grid5}
             xl={size.grid5}
             sm={size.grid5}
@@ -117,6 +124,7 @@ export function Grid6 (props:GridInterface){
             {...props}
             container
             item
+            justifyContent={props.justifyContent ?? size.webFlexStart}
             xs={size.grid6}
             xl={size.grid6}
             sm={size.grid6}
@@ -134,6 +142,7 @@ export function Grid7 (props:GridInterface){
             {...props}
             container
             item
+            justifyContent={props.justifyContent ?? size.webFlexStart}
             xs={size.grid7}
             xl={size.grid7}
             sm={size.grid7}
@@ -151,6 +160,7 @@ export function Grid8 (props:GridInterface){
             {...props}
             container
             item
+            justifyContent={props.justifyContent ?? size.webFlexStart}
             xs={size.grid8}
             xl={size.grid8}
             sm={size.grid8}
@@ -168,6 +178,7 @@ export function Grid9 (props:GridInterface){
             {...props}
             container
             item
+            justifyContent={props.justifyContent ?? size.webFlexStart}
             xs={size.grid9}
             xl={size.grid9}
             sm={size.grid9}
@@ -185,6 +196,7 @@ export function Grid10 (props:GridInterface){
             {...props}
             container
             item
+            justifyContent={props.justifyContent ?? size.webFlexStart}
             xs={size.grid10}
             xl={size.grid10}
             sm={size.grid10}
@@ -202,6 +214,7 @@ export function Grid11 (props:GridInterface){
             {...props}
             container
             item
+            justifyContent={props.justifyContent ?? size.webFlexStart}
             xs={size.grid11}
             xl={size.grid11}
             sm={size.grid11}
@@ -219,6 +232,7 @@ export function Grid12 (props:GridInterface){
             {...props}
             container
             item
+            justifyContent={props.justifyContent ?? size.webFlexStart}
             xs={size.grid12}
             xl={size.grid12}
             sm={size.grid12}

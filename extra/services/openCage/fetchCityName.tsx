@@ -21,7 +21,8 @@ export function FetchCityName (latitude:number,longitude:number,language:string,
         + language
     ).then(res=>res.json())
         .then((data)=>{
-            setCity(data.results[0].components.city)
+            const value = String(data.results[0].components.city + ', ' + data.results[0].components.state)
+            setCity(value)
         })
         .catch(error=>{
             dispatch(ErrorGeneric(String(error.response.status) + ' - ' + error.response.data))

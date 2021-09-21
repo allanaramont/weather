@@ -12,5 +12,7 @@
   "wind": "Vento",
   "windUnit": "km/h",
   "humidity": "Humidade",
-  "pressure": "Pressão"
+  "pressure": "Pressão",
+  "notFoundLocation": "Localização não encontrada",
+  "loading": "Carregando..."
 }
