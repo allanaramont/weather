@@ -29,16 +29,19 @@ function MyApp({Component, pageProps}: AppProps) {
   const theme = Theme()
   const router = useRouter()
   const language = useNavigator()
-  // @ts-ignore
-  const currentLocale = locales[language] ? language : 'en-us';
 
   //Init I18N
-  intl.init({
-    currentLocale,
-    locales
-  }).then(() => {
-    setIsI18N(true);
-  });
+  useEffect(()=>{
+    const currentLocale = language
+    if(language !== ''){
+      intl.init({
+        currentLocale,
+        locales
+      }).then(() => {
+        setIsI18N(true);
+      });
+    }
+  },[language])
 
   //Validation I18N and Theme
   useEffect(() => {
