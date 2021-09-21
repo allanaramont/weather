@@ -3,6 +3,10 @@
   "message404": "Page not found",
   "messageError": "Service error, please try again later.",
   "today": "Today",
+  "tomorrow": "Tomorrow",
+  "afterTomorrow": "After tomorrow",
   "search": "Search",
-  "locationSupport": "Geolocation is not supported"
+  "locationSupport": "Geolocation is not supported",
+  "celsius": "°C",
+  "fahrenheit": "°F"
 }

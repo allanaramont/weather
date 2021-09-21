@@ -3,6 +3,10 @@
   "message404": "Página não encontrada",
   "messageError": "Erro no serviço, por favor tentar novamente mais tarde.",
   "today": "Hoje",
+  "tomorrow": "Amanhã",
+  "afterTomorrow": "Depois de amanhã",
   "search": "Pesquisar",
-  "locationSupport": "Geolocalização não suportada"
+  "locationSupport": "Geolocalização não suportada",
+  "celsius": "°C",
+  "fahrenheit": "°F"
 }

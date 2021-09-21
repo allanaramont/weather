@@ -1,4 +1,4 @@
-import {useEffect, useState} from "react";
+import {Dispatch, SetStateAction, useEffect, useState} from "react";
 import { InputBase } from "@material-ui/core";
 import {useDispatch} from "react-redux";
 
@@ -25,12 +25,11 @@ import {usePosition} from "../../../../hooks/useGeoLocation";
 import {FetchCityName} from "../../../../services/openCage/fetchCityName";
 import {FetchWeather} from "../../../../services/openWeather/fetchWeather";
 
-export function FindLocation(){
+export function FindLocation(props:{setWeather:Dispatch<SetStateAction<Array<any>>>}){
     const classes = useFindLocationCSS();
     const geo = usePosition();
     const language = useNavigator();
     const [city,setCity] = useState('');
-    const [weather,setWeather] = useState({});
     const dispatch = useDispatch();
 
     //init
@@ -43,11 +42,9 @@ export function FindLocation(){
     //Change temp
     useEffect(()=>{
         if(city !== ''){
-            FetchWeather(city,dispatch,setWeather)
+            FetchWeather(city,dispatch,props.setWeather)
         }
     },[city])
-
-    console.log('weather',weather)
 
     return(
         <Grid7>
