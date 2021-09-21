@@ -12,6 +12,7 @@ import {SkeletonInit} from "../extra/components/skeleton/init";
 
 //Hooks
 import {useNavigator} from "../extra/hooks/useNavigator";
+import {useWindowSize} from "../extra/hooks/useWindowsSize";
 
 //Utils
 import {ChangeTemp} from "../extra/utils/changeTemp";
@@ -22,6 +23,7 @@ import {ResultTempInterface} from "../extra/interfaces/resultTemp";
 
 export default function Home(){
     const theme = useTheme();
+    const size = useWindowSize();
     const language = useNavigator();
     const [unitInit,setUnitInit] = useState('');
     const [weather,setWeather]:any = useState([]);
@@ -48,7 +50,8 @@ export default function Home(){
                     style={{
                         backgroundColor: alpha(theme.palette.background.paper, 0.15),
                         maxWidth: 800,
-                        borderRadius: theme.shape.borderRadius
+                        borderRadius: size.mobile? 0 : theme.shape.borderRadius,
+                        height: size.mobile ? size.height : 'auto'
                     }}>
                 <FindLocation setWeather={setWeather}/>
                 {Object.keys(today).length > 0 && tomorrow.temp > 0 && afterTomorrow.temp > 0 ?

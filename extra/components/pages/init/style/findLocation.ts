@@ -15,14 +15,16 @@ export const useFindLocationCSS = makeStyles((theme: Theme) =>
         },
         inputRoot: {
             color: 'inherit',
-            width: '100%',
+            width: '90%',
         },
         inputInput: {
-            margin: theme.spacing(1, 0, 1, 0),
+            margin: theme.spacing(0.3, 0, 0, 0.2),
             width: '100%',
         },
         inputIcon: {
-            margin: theme.spacing(1.5, 1, 0, 1)
+            margin: theme.spacing(1, 0, 0, 1),
+            fontSize: 30,
+            width:theme.spacing(2)
         }
     }),
 );

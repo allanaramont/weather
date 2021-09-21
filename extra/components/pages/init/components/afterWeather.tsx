@@ -15,8 +15,12 @@ import {getTempColor} from "../../../../utils/getTempColor";
 import {alpha} from "@material-ui/core/styles";
 import {getTempUnit} from "../../../../utils/getTempUnit";
 
+//Hooks
+import {useWindowSize} from "../../../../hooks/useWindowsSize";
+
 export function AfterWeather(props:AfterWeatherInterface){
     const theme = useTheme();
+    const size = useWindowSize();
 
     return(
         <Grid12 style={{
@@ -24,8 +28,8 @@ export function AfterWeather(props:AfterWeatherInterface){
             paddingBottom:theme.spacing(2),
             backgroundColor:alpha(getTempColor({temp:props.temp,unit:props.typeTemp}), props.backgroundPotion),
             height: 100,
-            borderBottomRightRadius: props.end ? theme.shape.borderRadius : 0,
-            borderBottomLeftRadius: props.end ? theme.shape.borderRadius : 0
+            borderBottomRightRadius: props.end ?  size.mobile ? 0 : theme.shape.borderRadius : 0,
+            borderBottomLeftRadius: props.end ?  size.mobile ? 0 : theme.shape.borderRadius : 0
         }}>
             <Grid6/>
             <Grid6>

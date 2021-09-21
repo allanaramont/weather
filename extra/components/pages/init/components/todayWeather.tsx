@@ -1,4 +1,4 @@
-import { useTheme } from "@material-ui/core";
+import {Grid, useTheme} from "@material-ui/core";
 import {alpha} from "@material-ui/core/styles";
 
 //Components
@@ -28,8 +28,17 @@ export function TodayWeather(props:TodayWeatherInterface){
             paddingBottom:theme.spacing(2),
             backgroundColor:alpha(getTempColor({temp:props.temp,unit:props.unit}), 0.5),
         }}>
-            <Grid6 justifyContent={'center'}>
-                <div data-icon={`${weatherIcon}`} style={{justifyContent:'center',fontSize:310,display:'flex',marginLeft:50,width:'50%'}} />
+            <Grid6>
+                <Grid
+                    container
+                    spacing={0}
+                    direction="column"
+                    alignItems="center"
+                    justifyContent="center"
+                >
+                    <div data-icon={`${weatherIcon}`}
+                         style={{fontSize:theme.spacing(20)}} />
+                </Grid>
             </Grid6>
             <Grid6>
                 <Grid12>

@@ -15,6 +15,7 @@ import { useFindLocationCSS } from "../style/findLocation";
 //Hooks
 import {useNavigator} from "../../../../hooks/useNavigator";
 import {usePosition} from "../../../../hooks/useGeoLocation";
+import {useWindowSize} from "../../../../hooks/useWindowsSize";
 
 //Icons
  import SearchIcon from '@material-ui/icons/Search';
@@ -23,11 +24,13 @@ import {usePosition} from "../../../../hooks/useGeoLocation";
 import {FetchCityName} from "../../../../services/openCage/fetchCityName";
 import {FetchWeather} from "../../../../services/openWeather/fetchWeather";
 
+
 export function FindLocation(props:{setWeather:Dispatch<SetStateAction<Array<any>>>}){
     const classes = useFindLocationCSS();
     const geo = usePosition();
     const theme = useTheme();
     const language = useNavigator();
+    const size = useWindowSize();
     const [city,setCity] = useState('');
     const [name,setName] = useState(intl.get('loading'));
     const dispatch = useDispatch();
@@ -59,8 +62,8 @@ export function FindLocation(props:{setWeather:Dispatch<SetStateAction<Array<any
                     paddingTop:theme.spacing(2),
                     paddingBottom:theme.spacing(2),
                     backgroundColor:alpha('#FFFFFF', 0.95),
-                    borderTopRightRadius: theme.shape.borderRadius,
-                    borderTopLeftRadius: theme.shape.borderRadius
+                    borderTopRightRadius: size.mobile ? 0 : theme.shape.borderRadius,
+                    borderTopLeftRadius: size.mobile ? 0 : theme.shape.borderRadius
         }}>
             <GridNumber number={10}>
                 <div className={classes.grow}>

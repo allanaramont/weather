@@ -16,6 +16,7 @@ import {locales} from '../extra/config/language'
 import {MuiThemeProvider} from "@material-ui/core";
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Theme from "../styles/theme";
+import '../styles/app.css';
 
 //Helpers
 import {useNavigator} from "../extra/hooks/useNavigator";
@@ -75,6 +76,12 @@ function MyApp({Component, pageProps}: AppProps) {
         <Head>
           <title>Weather</title>
           <link rel="stylesheet" type="text/css" href="/nprogress.css" />
+          <link
+              rel="preload"
+              href="/fonts/MeteoconsRegular/meteocons-webfont.ttf"
+              as="font"
+              crossOrigin=""
+          />
         </Head>
         {isMounted && (
             <Provider store={store}>
