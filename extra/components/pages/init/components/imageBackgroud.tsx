@@ -1,4 +1,4 @@
-import {useState} from "react";
+import {useEffect, useState} from "react";
 import {Grid} from "@material-ui/core";
 
 //Interface
@@ -17,9 +17,12 @@ export function ImageBackgroundInit(props:ImageBackgroundInitInterface){
     const dispatch = useDispatch();
     const language = useNavigator();
     const [img,setImg] = useState('');
-    FetchBackgroundImage(language,dispatch,setImg)
 
-    console.log('img',img)
+    useEffect(()=>{
+        if(language !== ''){
+            FetchBackgroundImage(language,dispatch,setImg)
+        }
+    },[language])
 
     return(
         <Grid
@@ -28,9 +31,13 @@ export function ImageBackgroundInit(props:ImageBackgroundInitInterface){
             direction="column"
             alignItems="center"
             justifyContent="center"
-            style={{ minHeight: '100vh' }}
+            style={{
+                minHeight: '100vh',
+                backgroundImage: `url(${img})`,
+                backgroundSize: 'cover',
+                backgroundPosition: 'center'
+            }}
         >
-            {/*construir o backgroundImage nessa div*/}
                 {props.children}
         </Grid>
     )

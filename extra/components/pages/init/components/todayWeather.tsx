@@ -26,7 +26,7 @@ export function TodayWeather(props:TodayWeatherInterface){
         <Grid12 style={{
             paddingTop:theme.spacing(2),
             paddingBottom:theme.spacing(2),
-            backgroundColor:alpha(getTempColor({temp:props.temp,unit:props.unit}), 0.5),
+            backgroundColor:alpha(getTempColor({temp:props.temp,unit:props.unit}), 0.8),
         }}>
             <Grid6>
                 <Grid

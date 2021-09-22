@@ -69,13 +69,13 @@ export default function Home(){
                                       end={false}
                                       temp={tomorrow.temp}
                                       typeTemp={tomorrow.unit}
-                                      backgroundPotion={0.3}
+                                      backgroundPotion={0.5}
                                       click={()=>{ChangeTemp(tomorrow,setTomorrow)}}/>
                         <AfterWeather title={'afterTomorrow'}
                                       end={true}
                                       temp={afterTomorrow.temp}
                                       typeTemp={afterTomorrow.unit}
-                                      backgroundPotion={0.5}
+                                      backgroundPotion={0.7}
                                       click={()=>{ChangeTemp(afterTomorrow,setAfterTomorrow)}}/>
                     </>
                     :

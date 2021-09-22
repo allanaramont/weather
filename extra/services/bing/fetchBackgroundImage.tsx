@@ -16,13 +16,14 @@ export function FetchBackgroundImage (language:string,dispatch:AppDispatch,setIm
     fetch(
         baseBingAPI
         + backgroundBingAPI
-        + language
+        + language,{mode: 'no-cors'}
     )
         .then(res => res.json())
         .then(data => {
             setImg('https://www.bing.com/' + data.images[0].url + '.png')
         })
         .catch((error)=>{
+            console.log('error',error)
             dispatch(ErrorGeneric(intl.get('messageError')))
         })
 }
