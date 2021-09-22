@@ -13,12 +13,11 @@ import {FetchBackgroundImage} from "../../../../services/bing/fetchBackgroundIma
 //Hooks
 import {useNavigator} from "../../../../hooks/useNavigator";
 
-
 export function ImageBackgroundInit(props:ImageBackgroundInitInterface){
     const dispatch = useDispatch();
     const language = useNavigator();
     const [img,setImg] = useState('');
-    //FetchBackgroundImage(language,dispatch,setImg)
+    FetchBackgroundImage(language,dispatch,setImg)
 
     console.log('img',img)
 

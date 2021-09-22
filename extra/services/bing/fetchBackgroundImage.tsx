@@ -1,3 +1,5 @@
+import {Dispatch, SetStateAction} from "react";
+
 //Redux
 import {AppDispatch} from "./../../redux/store";
 
@@ -5,12 +7,15 @@ import {AppDispatch} from "./../../redux/store";
 import {ErrorGeneric} from "../../utils/errorGeneric";
 
 //Constants
-import {baseBingAPI} from "../../config/services";
-import {Dispatch, SetStateAction} from "react";
+import {backgroundBingAPI, baseBingAPI} from "../../config/services";
+
+//I18N
+import intl from "react-intl-universal";
 
 export function FetchBackgroundImage (language:string,dispatch:AppDispatch,setImg:Dispatch<SetStateAction<string>>){
     fetch(
         baseBingAPI
+        + backgroundBingAPI
         + language
     )
         .then(res => res.json())
@@ -18,6 +23,6 @@ export function FetchBackgroundImage (language:string,dispatch:AppDispatch,setIm
             setImg('https://www.bing.com/' + data.images[0].url + '.png')
         })
         .catch((error)=>{
-            dispatch(ErrorGeneric(String(error.response.status) + ' - ' + error.response.data))
+            dispatch(ErrorGeneric(intl.get('messageError')))
         })
 }
