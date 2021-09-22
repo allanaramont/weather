@@ -24,7 +24,6 @@ import {useWindowSize} from "../../../../hooks/useWindowsSize";
 import {FetchCityName} from "../../../../services/openCage/fetchCityName";
 import {FetchWeather} from "../../../../services/openWeather/fetchWeather";
 
-
 export function FindLocation(props:{setWeather:Dispatch<SetStateAction<Array<any>>>}){
     const classes = useFindLocationCSS();
     const geo = usePosition();

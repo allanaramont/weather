@@ -1,4 +1,6 @@
 import {createStyles, makeStyles} from "@material-ui/core/styles";
+
+//Hooks
 import {useWindowsSizeInterface} from "../../../../interfaces/useWindowsSize";
 
 export const useImageBackgroundErrorCSS = makeStyles(() =>
