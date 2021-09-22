@@ -14,16 +14,16 @@ import intl from "react-intl-universal";
 
 export function FetchBackgroundImage (language:string,dispatch:AppDispatch,setImg:Dispatch<SetStateAction<string>>){
     fetch(
-        baseBingAPI
+        'https://cors-anywhere.herokuapp.com/'+baseBingAPI
         + backgroundBingAPI
-        + language,{mode: 'no-cors'}
+        + language
     )
         .then(res => res.json())
         .then(data => {
             setImg('https://www.bing.com/' + data.images[0].url + '.png')
         })
         .catch((error)=>{
-            console.log('error',error)
             dispatch(ErrorGeneric(intl.get('messageError')))
         })
 }
+
