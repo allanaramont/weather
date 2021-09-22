@@ -46,7 +46,19 @@ Start the server
   yarn dev
 ```
 
+Start test
+
+```bash
+  yarn test
+```
+
 ## Directories
+
+__Test__
+
+```bash
+  Test components
+```
 
 Extra/Components
 
