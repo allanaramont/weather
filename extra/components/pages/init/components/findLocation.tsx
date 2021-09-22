@@ -46,12 +46,10 @@ export function FindLocation(props:{setWeather:Dispatch<SetStateAction<Array<any
 
     //Change temp
     useEffect(()=>{
+        props.setWeather([])
         if(city !== ''  && language !== ''){
             setName(city)
             FetchWeather(city,dispatch,props.setWeather,String(language.split("-", 1)))
-        }
-        else if (name === intl.get('notFoundLocation')){
-            props.setWeather([])
         }
     },[city])
 

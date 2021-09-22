@@ -54,7 +54,7 @@ export default function Home(){
                         height: size.mobile ? size.height : 'auto'
                     }}>
                 <FindLocation setWeather={setWeather}/>
-                {Object.keys(today).length > 0 && tomorrow.temp > 0 && afterTomorrow.temp > 0 ?
+                {weather.length > 0 && Object.keys(today).length > 0 && tomorrow.temp > 0 && afterTomorrow.temp > 0 ?
                     <>
                         <TodayWeather temp={today.temp}
                                       id={today.id}

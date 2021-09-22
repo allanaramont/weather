@@ -26,12 +26,12 @@ export function SkeletonInit(){
                     </Grid>
                 </Grid6>
                 <Grid6 justifyContent={'center'} style={{marginTop:10,marginBottom:10}}>
-                    <Skeleton width={'80%'} height={50}/>
-                    <Skeleton width={'80%'} height={50}/>
-                    <Skeleton width={'80%'} height={50}/>
-                    <Skeleton width={'80%'} height={50}/>
-                    <Skeleton width={'80%'} height={50}/>
-                    <Skeleton width={'80%'} height={50}/>
+                    <Skeleton width={'80%'} height={40}/>
+                    <Skeleton width={'80%'} height={40}/>
+                    <Skeleton width={'80%'} height={40}/>
+                    <Skeleton width={'80%'} height={40}/>
+                    <Skeleton width={'80%'} height={40}/>
+                    <Skeleton width={'80%'} height={40}/>
                 </Grid6>
             </Grid12>
             <Grid12 style={{
@@ -40,8 +40,8 @@ export function SkeletonInit(){
                 <Grid6>
                 </Grid6>
                 <Grid6 justifyContent={'center'} style={{marginTop:10,marginBottom:10}}>
-                    <Skeleton width={'80%'} height={50}/>
-                    <Skeleton width={'80%'} height={50}/>
+                    <Skeleton width={'80%'} height={40}/>
+                    <Skeleton width={'80%'} height={40}/>
                 </Grid6>
             </Grid12>
             <Grid12 style={{
@@ -55,8 +55,8 @@ export function SkeletonInit(){
                     marginTop:10,
                     marginBottom:10
                 }}>
-                    <Skeleton width={'80%'} height={50}/>
-                    <Skeleton width={'80%'} height={50}/>
+                    <Skeleton width={'80%'} height={40}/>
+                    <Skeleton width={'80%'} height={40}/>
                 </Grid6>
             </Grid12>
         </>
