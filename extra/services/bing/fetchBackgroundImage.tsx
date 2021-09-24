@@ -14,7 +14,7 @@ import intl from "react-intl-universal";
 
 export function FetchBackgroundImage (language:string,dispatch:AppDispatch,setImg:Dispatch<SetStateAction<string>>){
     fetch(
-        'https://cors-anywhere.herokuapp.com/'+baseBingAPI
+        baseBingAPI
         + backgroundBingAPI
         + language
     )

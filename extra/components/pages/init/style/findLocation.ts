@@ -18,13 +18,16 @@ export const useFindLocationCSS = makeStyles((theme: Theme) =>
             width: '90%',
         },
         inputInput: {
-            margin: theme.spacing(0.3, 0, 0, 0.2),
+            padding: theme.spacing(0.3, 0, 0, 0.2),
             width: '100%',
         },
         inputIcon: {
-            margin: theme.spacing(1, 0, 0, 1),
-            fontSize: 30,
-            width:theme.spacing(2)
+            margin: theme.spacing(0.9, 1, 0, 1),
+            fontSize: 25
+        },
+        inputIconMete: {
+            margin: theme.spacing(0.6, 1, 0, 1),
+            fontSize: 20
         }
     }),
 );

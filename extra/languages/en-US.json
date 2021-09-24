@@ -14,5 +14,6 @@
   "humidity": "Humidity",
   "pressure": "Pressure",
   "notFoundLocation": "Location not found",
+  "findLocation": "Find your location",
   "loading": "Loading..."
 }

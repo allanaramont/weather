@@ -1,5 +1,5 @@
 import {Dispatch, SetStateAction, useEffect, useState} from "react";
-import {Grid, InputBase, useTheme} from "@material-ui/core";
+import {Grid, InputBase, Tooltip, useTheme} from "@material-ui/core";
 import {useDispatch} from "react-redux";
 import {alpha} from "@material-ui/core/styles";
 
@@ -14,7 +14,6 @@ import { useFindLocationCSS } from "../style/findLocation";
 
 //Hooks
 import {useNavigator} from "../../../../hooks/useNavigator";
-import {usePosition} from "../../../../hooks/useGeoLocation";
 import {useWindowSize} from "../../../../hooks/useWindowsSize";
 
 //Icons
@@ -23,26 +22,43 @@ import {useWindowSize} from "../../../../hooks/useWindowsSize";
 //Services
 import {FetchCityName} from "../../../../services/openCage/fetchCityName";
 import {FetchWeather} from "../../../../services/openWeather/fetchWeather";
+import {ErrorGeneric} from "../../../../utils/errorGeneric";
 
 export function FindLocation(props:{setWeather:Dispatch<SetStateAction<Array<any>>>}){
     const classes = useFindLocationCSS();
-    const geo = usePosition();
     const theme = useTheme();
     const language = useNavigator();
     const size = useWindowSize();
     const [city,setCity] = useState('');
-    const [name,setName] = useState(intl.get('loading'));
+    const [name,setName] = useState('');
     const dispatch = useDispatch();
 
-    //init
-    useEffect(()=>{
-        if(geo.latitude !== 0 && geo.longitude !== 1 && language !== ''){
-            FetchCityName(geo.latitude,geo.longitude,String(language.split("-", 1)), dispatch,setCity)
+    //Find Geolocation
+    const onChange = ({coords}:GeolocationPosition) => {
+        if(coords.latitude !== 0 && coords.longitude !== 1 && language !== ''){
+            FetchCityName(coords.latitude,coords.longitude,String(language.split("-", 1)), dispatch,setCity)
         }
-        else if(geo.latitude === 0 && geo.longitude === 0){
+        else if(coords.latitude === 0 && coords.longitude === 0){
             setName(intl.get('notFoundLocation'))
         }
-    },[geo])
+    };
+    const onError = (error:GeolocationPositionError) => {
+        setName(intl.get('locationSupport'))
+        dispatch(ErrorGeneric(error.message))
+    };
+
+    async function FindLocation(){
+        setName(intl.get('loading'))
+        const geo = navigator.geolocation;
+        if (!geo) {
+            setName(intl.get('locationSupport'))
+            dispatch(ErrorGeneric(intl.get('locationSupport')))
+            return;
+        }
+        else{
+            geo.watchPosition(onChange, onError)
+        }
+    }
 
     //Change temp
     useEffect(()=>{
@@ -52,6 +68,10 @@ export function FindLocation(props:{setWeather:Dispatch<SetStateAction<Array<any
             FetchWeather(city,dispatch,props.setWeather,String(language.split("-", 1)))
         }
     },[city])
+
+    useEffect(()=>{
+        setCity('Cabo Frio, Rio de Janeiro')
+    },[])
 
     return(
         <Grid12 justifyContent={'center'}
@@ -65,12 +85,16 @@ export function FindLocation(props:{setWeather:Dispatch<SetStateAction<Array<any
             <GridNumber number={10}>
                 <div className={classes.grow}>
                     <div className={classes.search}>
-                        <Grid12>
+                        <Grid12 justifyContent={'space-between'}>
                             <Grid>
-                                <SearchIcon className={classes.inputIcon}
-                                    onClick={()=>{setCity(name)}}/>
+                                <Tooltip arrow
+                                         title={intl.get('findLocation')}>
+                                    <div data-icon={`(`}
+                                         className={classes.inputIconMete}
+                                         onClick={FindLocation}/>
+                                </Tooltip>
                             </Grid>
-                            <GridNumber number={11}>
+                            <GridNumber number={10}>
                                 <InputBase
                                     value={name}
                                     placeholder={intl.get('search')}
@@ -84,6 +108,13 @@ export function FindLocation(props:{setWeather:Dispatch<SetStateAction<Array<any
                                     inputProps={{ 'aria-label': 'search' }}
                                 />
                             </GridNumber>
+                            <Grid>
+                                <Tooltip arrow
+                                         title={intl.get('search')}>
+                                    <SearchIcon className={classes.inputIcon}
+                                                onClick={()=>{setCity(name)}}/>
+                                </Tooltip>
+                            </Grid>
                         </Grid12>
                     </div>
                 </div>

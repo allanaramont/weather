@@ -14,5 +14,6 @@
   "humidity": "Humidade",
   "pressure": "Pressão",
   "notFoundLocation": "Localização não encontrada",
+  "findLocation": "Buscar sua localização",
   "loading": "Carregando..."
 }
