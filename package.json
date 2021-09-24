@@ -2,7 +2,7 @@
   "name": "weather",
   "version": "0.1.0",
   "private": true,
-  "homepage": "ather-geolocation.vercel.app",
+  "homepage": "https://weather-geolocation.vercel.app",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
@@ -19,9 +19,7 @@
     "@testing-library/react": "^12.1.0",
     "@types/nprogress": "^0.2.0",
     "@types/styled-components": "^5.1.14",
-    "axios": "^0.21.4",
     "babel-jest": "^27.2.1",
-    "http-proxy-middleware": "^2.0.1",
     "identity-obj-proxy": "^3.0.0",
     "next": "11.1.2",
     "nprogress": "^0.2.0",
