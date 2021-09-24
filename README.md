@@ -1,7 +1,13 @@
 
 # Weather
 
+![App Screenshot](https://user-images.githubusercontent.com/45175421/134700537-49ece4da-07fa-441c-be13-ba09c90fd703.png)
+
 Web application at Next.js
+
+# Score App
+
+![App Screenshot](https://user-images.githubusercontent.com/45175421/134700537-49ece4da-07fa-441c-be13-ba09c90fd703.png)
 
 ## Tech Stack
 
