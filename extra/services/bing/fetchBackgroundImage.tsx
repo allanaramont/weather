@@ -11,19 +11,28 @@ import {backgroundBingAPI, baseBingAPI} from "../../config/services";
 
 //I18N
 import intl from "react-intl-universal";
+import axios from "axios";
 
 export function FetchBackgroundImage (language:string,dispatch:AppDispatch,setImg:Dispatch<SetStateAction<string>>){
-    fetch(
-        baseBingAPI
-        + backgroundBingAPI
-        + language
-    )
-        .then(res => res.json())
-        .then(data => {
-            setImg('https://www.bing.com/' + data.images[0].url + '.png')
-        })
+    axios.get(baseBingAPI + backgroundBingAPI + language)
+        .then(res => console.log(res.data))
+        // .then(data => {
+        //     setImg('https://www.bing.com/' + data.images[0].url + '.png')
+        // })
         .catch((error)=>{
             dispatch(ErrorGeneric(intl.get('messageError')))
         })
+    // fetch(
+    //     baseBingAPI
+    //     + backgroundBingAPI
+    //     + language
+    // )
+    //     .then(res => res.json())
+    //     .then(data => {
+    //         setImg('https://www.bing.com/' + data.images[0].url + '.png')
+    //     })
+    //     .catch((error)=>{
+    //         dispatch(ErrorGeneric(intl.get('messageError')))
+    //     })
 }
 
