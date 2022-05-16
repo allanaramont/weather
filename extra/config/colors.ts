@@ -1,3 +1,3 @@
-export const blueColor = '#0400ff99';
+export const blueColor = '#25408B';
 export const yellowColor = '#decf0299';
-export const redColor = '#ff010199'
+export const redColor = '#C4341A'

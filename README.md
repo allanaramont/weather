@@ -1,131 +1,67 @@
 
-# Weather
+# Weather Forecast
 
-![App Screenshot](https://user-images.githubusercontent.com/45175421/134700537-49ece4da-07fa-441c-be13-ba09c90fd703.png)
+Projeto que consiste em consumir as API`s do Bing, OpenCageData, OpenWeatherMap e retornar o clima.
 
-Web application at Next.js
 
-# Score App
+## Sobre o projeto
 
-![Score](https://user-images.githubusercontent.com/45175421/134701653-a7942337-fb4c-4854-bccb-2580d4ede14c.png)
+Como dito anteriormente, este projeto consome a API do Bing, OpenCageData, OpenWeatherMap. O usuário permite a localização via geolocation ou digita o local que deseja saber o tempo e a aplicação retorna os dados do local procurada.
+Disponível em 2 idiomas: Português e Inglês.
 
-# Online App
+## Demonstração
 
-[Weather Online App](https://weather-geolocation.vercel.app/)
+Veja abaixo uma foto do projeto.
+[![Image from Gyazo](https://i.gyazo.com/c65e613d70215054da3e2ce1593968c9.png)](https://gyazo.com/)
 
-## Tech Stack
+Você pode conferir o resultado final em: https://weather.allanmonth.vercel.app/
 
-**Client:** Next.JS, React, Redux, Material-UI.
 
-## Extern Services 
+## Objetivo do projeto
 
-[Bing API Documentation](https://docs.microsoft.com/en-us/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference)
+Foi realizado este projeto com o intuito de aplicar os conhecimentos sobre requisições HTTPS dos serviços listados abaixo. Além disso, foi desenvolvido para aperfeiçoar os conhecimentos em Next.js e TypeScript.
 
-[OpenCageData API Documentation](https://opencagedata.com/api)
 
-[OpenWeatherMap API Documentation](https://openweathermap.org/api)
+## Serviço utilizado
 
-## Warnings
+Para a realização desse projeto foram utilizadas as seguintes serviços:
+- [Bing API](https://docs.microsoft.com/en-us/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference)
+- [OpenCageData API](https://opencagedata.com/api)
+- [OpenWeatherMap API](https://openweathermap.org/api)
 
-**Language:** app available in pt-BR and en-US.
-**Conversations unit :** temperature in ° C and  ° F / distance in Km/h and m/h.
 
-## Run Locally
+## Stack utilizada
 
-Clone the project
+Para a realização desse projeto foram utilizadas as seguintes tecnologias/linguagens:
+- [Next.js](https://nextjs.org/)
+- [React Toastify](https://fkhadra.github.io/react-toastify/introduction)
+- [Styled Components](https://www.styled-components.com/)
+- [React Intl Universal](https://github.com/alibaba/react-intl-universal)
+
+
+## Rodando localmente
+
+Clone o projeto
 
 ```bash
   git clone https://github.com/allanmonth/weather
 ```
 
-Go to the project directory
+Entre no diretório do projeto
 
 ```bash
   cd weather
 ```
 
-Install dependencies
+Instale as dependências
 
 ```bash
-  yarn i
+  yarn install
 ```
 
-Start the server
+Inicie o servidor
 
 ```bash
   yarn dev
 ```
-
-Start test
-
-```bash
-  yarn test
-```
-
-## Directories
-
-__Test__
-
-```bash
-  Test components
-```
-
-Extra/Components
-
-```bash
-  Common components
-```
-
-Extra/Config
-
-```bash
-  Application settings (firebase, auth, etc)
-```
-
-Extra/Hooks
-
-```bash
-  Hook functions
-```
-
-Extra/Languages
-
-```bash
-  JSON languages
-```
-
-Extra/Redux
-
-```bash
-  Settings Redux
-```
-
-Extra/Services
-
-```bash
-  API services
-```
-
-Extra/Constants
-
-```bash
-  Variables
-```
-
-Extra/Interfaces
-
-```bash
-  Interface Typescript
-```
-
-Extra/Utils
-
-```bash
-  Functions generic
-```
-
-## Documentation
-
-[WEB Documentation](https://github.com/hurbcom/challenge-charlie)
-
-  
+Abra http://localhost:3000 no seu navegador para visualizar o projeto.

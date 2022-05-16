@@ -70,7 +70,7 @@ export function FindLocation(props:{setWeather:Dispatch<SetStateAction<Array<any
     },[city])
 
     useEffect(()=>{
-        setCity('Cabo Frio, Rio de Janeiro')
+        setCity('Rio de Janeiro, Rio de Janeiro')
     },[])
 
     return(
