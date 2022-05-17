@@ -1,29 +1,9 @@
-import {useEffect, useState} from "react";
 import {Grid} from "@material-ui/core";
 
 //Interface
 import { ImageBackgroundInitInterface } from "../../../../interfaces/imageBackground";
 
-//Redux
-import {useDispatch} from "react-redux";
-
-//Services
-import {FetchBackgroundImage} from "../../../../services/bing/fetchBackgroundImage";
-
-//Hooks
-import {useNavigator} from "../../../../hooks/useNavigator";
-
 export function ImageBackgroundInit(props:ImageBackgroundInitInterface){
-    const dispatch = useDispatch();
-    const language = useNavigator();
-    const [img,setImg] = useState('');
-
-    useEffect(()=>{
-        if(language !== ''){
-            FetchBackgroundImage(language,dispatch,setImg)
-        }
-    },[language])
-
     return(
         <Grid
             container
@@ -33,7 +13,7 @@ export function ImageBackgroundInit(props:ImageBackgroundInitInterface){
             justifyContent="center"
             style={{
                 minHeight: '100vh',
-                backgroundImage: `url(${img})`,
+                backgroundImage: `url("https://i.gyazo.com/9fc37a34004ad411e566f2d7ef916b3d.jpg")`,
                 backgroundSize: 'cover',
                 backgroundPosition: 'center'
             }}

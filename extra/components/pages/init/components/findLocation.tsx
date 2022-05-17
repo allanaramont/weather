@@ -76,7 +76,7 @@ export function FindLocation(props:{setWeather:Dispatch<SetStateAction<Array<any
     return(
         <Grid12 justifyContent={'center'}
                 style={{
-                    paddingTop:theme.spacing(2),
+                    paddingTop: theme.spacing(2),
                     paddingBottom:theme.spacing(2),
                     backgroundColor:alpha('#FFFFFF', 0.95),
                     borderTopRightRadius: size.mobile ? 0 : theme.shape.borderRadius,
@@ -94,7 +94,7 @@ export function FindLocation(props:{setWeather:Dispatch<SetStateAction<Array<any
                                          onClick={FindLocation}/>
                                 </Tooltip>
                             </Grid>
-                            <GridNumber number={10}>
+                            <GridNumber number={9}>
                                 <InputBase
                                     value={name}
                                     placeholder={intl.get('search')}

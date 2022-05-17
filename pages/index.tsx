@@ -46,13 +46,15 @@ export default function Home(){
 
     return(
         <ImageBackgroundInit>
-            <Grid10 justifyContent={'center'}
+            <Grid10 justifyContent={'flex-start'}
                     style={{
                         backgroundColor: alpha(theme.palette.background.paper, 0.15),
                         maxWidth: 800,
                         borderRadius: size.mobile? 0 : theme.shape.borderRadius,
-                        height: size.mobile ? size.height : 'auto'
-                    }}>
+                        height: size.mobile ? size.height : 'auto',
+                        display: 'flex',
+                        alignItems: 'flex-start',
+                        }}>
                 <FindLocation setWeather={setWeather}/>
                 {weather.length > 0 && Object.keys(today).length > 0 && tomorrow.temp > 0 && afterTomorrow.temp > 0 ?
                     <>

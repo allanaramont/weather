@@ -12,7 +12,7 @@ Disponível em 2 idiomas: Português e Inglês.
 ## Demonstração
 
 Veja abaixo uma foto do projeto.
-[![Image from Gyazo](https://i.gyazo.com/c65e613d70215054da3e2ce1593968c9.png)](https://gyazo.com/)
+[![Image from Gyazo](https://i.gyazo.com/fa7a177cb3e24f202b33480e45b92281.png)](https://gyazo.com/)
 
 Você pode conferir o resultado final em: https://weather.allanmonth.vercel.app/
 
