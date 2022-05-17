@@ -6,7 +6,7 @@ Projeto que consiste em consumir as API`s do OpenCageData, OpenWeatherMap e reto
 
 ## Sobre o projeto
 
-Como dito anteriormente, este projeto consome a API do Bing, OpenCageData, OpenWeatherMap. O usuário permite a localização via geolocation ou digita o local que deseja saber o tempo e a aplicação retorna os dados do local procurada.
+Como dito anteriormente, este projeto consome a API do OpenCageData, OpenWeatherMap. O usuário permite a localização via geolocation ou digita o local que deseja saber o tempo e a aplicação retorna os dados do local procurada.
 Disponível em 2 idiomas: Português e Inglês.
 Disponível em 2 medidas: Fahrenheit e Celsius.
 A cor muda de acordo com a temperatura.
@@ -26,7 +26,7 @@ Foi realizado este projeto com o intuito de aplicar os conhecimentos sobre requi
 
 ## Serviço utilizado
 
-Para a realização desse projeto foram utilizadas as seguintes serviços:=
+Para a realização desse projeto foram utilizadas as seguintes serviços:
 - [OpenCageData API](https://opencagedata.com/api)
 - [OpenWeatherMap API](https://openweathermap.org/api)
 
