@@ -1,13 +1,15 @@
 
 # Weather Forecast
 
-Projeto que consiste em consumir as API`s do Bing, OpenCageData, OpenWeatherMap e retornar o clima.
+Projeto que consiste em consumir as API`s do OpenCageData, OpenWeatherMap e retornar o clima.
 
 
 ## Sobre o projeto
 
 Como dito anteriormente, este projeto consome a API do Bing, OpenCageData, OpenWeatherMap. O usuário permite a localização via geolocation ou digita o local que deseja saber o tempo e a aplicação retorna os dados do local procurada.
 Disponível em 2 idiomas: Português e Inglês.
+Disponível em 2 medidas: Fahrenheit e Celsius.
+A cor muda de acordo com a temperatura.
 
 ## Demonstração
 
@@ -24,8 +26,7 @@ Foi realizado este projeto com o intuito de aplicar os conhecimentos sobre requi
 
 ## Serviço utilizado
 
-Para a realização desse projeto foram utilizadas as seguintes serviços:
-- [Bing API](https://docs.microsoft.com/en-us/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference)
+Para a realização desse projeto foram utilizadas as seguintes serviços:=
 - [OpenCageData API](https://opencagedata.com/api)
 - [OpenWeatherMap API](https://openweathermap.org/api)
 
