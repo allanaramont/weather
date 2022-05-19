@@ -1,5 +1,5 @@
 import React from 'react';
-import {Box, Button, Grid} from "@material-ui/core";
+import {Button, Grid} from "@material-ui/core";
 import {useRouter} from "next/router";
 
 //Hooks
@@ -42,7 +42,7 @@ export default function ErrorPage (props:errorPageInterface){
                                           align={'center'}>
                             {intl.get('message404')}
                         </TypographyCustom>
-                        <Box m={10}>
+                        <div>
                             <Button fullWidth
                                     hidden
                                     variant="contained"
@@ -56,7 +56,7 @@ export default function ErrorPage (props:errorPageInterface){
                                     onClick={()=>router.push(initRouter)}>
                                 {intl.get('back')}
                             </Button>
-                        </Box>
+                        </div>
                     </Grid>
                 </ImageBackgroundError>
             </Container>
