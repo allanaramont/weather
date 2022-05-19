@@ -28,7 +28,7 @@ const ToastMessage = ({ type, message }: ToastInterface) => {
 export default function CustomizedSnackbars (){
     const state = useAppSelector(selectSnack);
 
-    const notify = React.useCallback((type, message) => {
+    const notify = React.useCallback((type: string, message: string) => {
         ToastMessage({ type, message });
     }, []);
 
