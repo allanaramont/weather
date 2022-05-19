@@ -9,7 +9,8 @@ import {ErrorGeneric} from "../../utils/errorGeneric";
 //Constants
 import {baseOpenCageAPI, keyOpenCageAPI} from "../../config/services";
 
-export function FetchCityName (latitude:number,longitude:number,language:string,dispatch:AppDispatch,setCity:Dispatch<SetStateAction<string>>){
+export function FetchCityName (latitude:number,longitude:number,language:string,dispatch:AppDispatch,setCity:Dispatch<SetStateAction<string>>,
+    city:string,setName:Dispatch<SetStateAction<string>>){
     fetch(
         baseOpenCageAPI
         + latitude
@@ -22,6 +23,9 @@ export function FetchCityName (latitude:number,longitude:number,language:string,
     ).then(res=>res.json())
         .then((data)=>{
             const value = String(data.results[0].components.city + ', ' + data.results[0].components.state)
+            if(value === city){
+                setName(value)
+            }
             setCity(value)
         })
         .catch(error=>{

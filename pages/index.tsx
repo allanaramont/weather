@@ -11,12 +11,12 @@ import {AfterWeather} from "../extra/components/pages/init/components/afterWeath
 import {SkeletonInit} from "../extra/components/skeleton/init";
 
 //Hooks
-import {useNavigator} from "../extra/hooks/useNavigator";
 import {useWindowSize} from "../extra/hooks/useWindowsSize";
 
 //Utils
 import {ChangeTemp} from "../extra/utils/changeTemp";
 import {FindWeather} from "../extra/components/pages/init/utils/findWeather";
+import intl from 'react-intl-universal';
 
 //Interfaces
 import {ResultTempInterface} from "../extra/interfaces/resultTemp";
@@ -24,7 +24,7 @@ import {ResultTempInterface} from "../extra/interfaces/resultTemp";
 export default function Home(){
     const theme = useTheme();
     const size = useWindowSize();
-    const language = useNavigator();
+    const language = intl.getInitOptions().currentLocale;
     const [unitInit,setUnitInit] = useState('');
     const [weather,setWeather]:any = useState([]);
     const [today,setToday]:any = useState({temp: 0,description: "", unit: "", windDeg: 0, windSpeed: 0,

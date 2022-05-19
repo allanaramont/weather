@@ -1,4 +1,4 @@
-import {Grid, useTheme} from "@material-ui/core";
+import {Grid, useTheme, Tooltip} from "@material-ui/core";
 import {alpha} from "@material-ui/core/styles";
 
 //Components
@@ -47,13 +47,17 @@ export function TodayWeather(props:TodayWeatherInterface){
                     </TypographyCustom>
                 </Grid12>
                 <Grid12>
-                    <TypographyCustom variant={'h1'}
-                                      style={{
-                                          cursor:'pointer'
-                                      }}
-                                      onClick={props.click}>
-                        {Number(props.temp).toFixed(0)}{getTempUnit(props.unit)}
-                    </TypographyCustom>
+                <Tooltip title={intl.get('changeUnit')} placement="right">
+                    <div>
+                        <TypographyCustom variant={'h1'}
+                                        style={{
+                                            cursor:'pointer'
+                                        }}
+                                        onClick={props.click}>
+                            {Number(props.temp).toFixed(0)}{getTempUnit(props.unit)}
+                        </TypographyCustom>
+                    </div>
+                    </Tooltip>
                 </Grid12>
                 <Grid12>
                     <TypographyCustom variant={'h2'}

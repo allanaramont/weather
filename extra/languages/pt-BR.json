@@ -15,5 +15,7 @@
   "pressure": "Pressão",
   "notFoundLocation": "Localização não encontrada",
   "findLocation": "Buscar sua localização",
-  "loading": "Carregando..."
+  "loading": "Carregando...",
+  "changeUnit": "Mudar unidade",
+  "changeLanguage": "Mudar idioma"
 }

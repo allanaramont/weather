@@ -13,7 +13,6 @@ import intl from "react-intl-universal";
 import { useFindLocationCSS } from "../style/findLocation";
 
 //Hooks
-import {useNavigator} from "../../../../hooks/useNavigator";
 import {useWindowSize} from "../../../../hooks/useWindowsSize";
 
 //Icons
@@ -23,11 +22,12 @@ import {useWindowSize} from "../../../../hooks/useWindowsSize";
 import {FetchCityName} from "../../../../services/openCage/fetchCityName";
 import {FetchWeather} from "../../../../services/openWeather/fetchWeather";
 import {ErrorGeneric} from "../../../../utils/errorGeneric";
+import { LanguageComponent } from "../../../common/language";
 
 export function FindLocation(props:{setWeather:Dispatch<SetStateAction<Array<any>>>}){
     const classes = useFindLocationCSS();
     const theme = useTheme();
-    const language = useNavigator();
+    const language = intl.getInitOptions().currentLocale;
     const size = useWindowSize();
     const [city,setCity] = useState('');
     const [name,setName] = useState('');
@@ -36,7 +36,7 @@ export function FindLocation(props:{setWeather:Dispatch<SetStateAction<Array<any
     //Find Geolocation
     const onChange = ({coords}:GeolocationPosition) => {
         if(coords.latitude !== 0 && coords.longitude !== 1 && language !== ''){
-            FetchCityName(coords.latitude,coords.longitude,String(language.split("-", 1)), dispatch,setCity)
+            FetchCityName(coords.latitude,coords.longitude,String(language.split("-", 1)), dispatch,setCity,city,setName)
         }
         else if(coords.latitude === 0 && coords.longitude === 0){
             setName(intl.get('notFoundLocation'))
@@ -56,9 +56,9 @@ export function FindLocation(props:{setWeather:Dispatch<SetStateAction<Array<any
             return;
         }
         else{
-            geo.watchPosition(onChange, onError)
+            geo.getCurrentPosition(onChange, onError)
         }
-    }
+    } 
 
     //Change temp
     useEffect(()=>{
@@ -67,7 +67,7 @@ export function FindLocation(props:{setWeather:Dispatch<SetStateAction<Array<any
             setName(city)
             FetchWeather(city,dispatch,props.setWeather,String(language.split("-", 1)))
         }
-    },[city])
+    },[city,language])
 
     useEffect(()=>{
         setCity('Rio de Janeiro, Rio de Janeiro')
@@ -109,16 +109,23 @@ export function FindLocation(props:{setWeather:Dispatch<SetStateAction<Array<any
                                 />
                             </GridNumber>
                             <Grid>
-                                <Tooltip arrow
-                                         title={intl.get('search')}>
-                                    <SearchIcon className={classes.inputIcon}
-                                                onClick={()=>{setCity(name)}}/>
+                                <Tooltip title={intl.get('search')}>
+                                    <div>
+                                        <SearchIcon className={classes.inputIcon} onClick={()=>{setCity(name)}}/>
+                                    </div>
                                 </Tooltip>
                             </Grid>
                         </Grid12>
                     </div>
                 </div>
             </GridNumber>
+            <Grid style={{paddingTop: theme.spacing(1),paddingLeft:theme.spacing(2),}}>
+                <Tooltip title={intl.get('changeLanguage')}>
+                    <div>
+                        <LanguageComponent setInit={()=>{}} />
+                    </div>
+                </Tooltip>
+            </Grid>
         </Grid12>
     )
 }

@@ -1,4 +1,4 @@
-import { useTheme } from "@material-ui/core";
+import { useTheme, Tooltip } from "@material-ui/core";
 
 //Components
 import { Grid12 , Grid6 } from "../../../common/grid";
@@ -39,11 +39,15 @@ export function AfterWeather(props:AfterWeatherInterface){
                     </TypographyCustom>
                 </Grid12>
                 <Grid12>
-                    <TypographyCustom variant={'h1'}
-                                      style={{cursor:'pointer'}}
-                                      onClick={props.click}>
-                        {Number(props.temp).toFixed(0)}{getTempUnit(props.typeTemp)}
-                    </TypographyCustom>
+                    <Tooltip title={intl.get('changeUnit')} placement="right">
+                        <div>
+                            <TypographyCustom variant={'h1'}
+                                            style={{cursor:'pointer'}}
+                                            onClick={props.click}>
+                                {Number(props.temp).toFixed(0)}{getTempUnit(props.typeTemp)}
+                            </TypographyCustom>
+                        </div>
+                    </Tooltip>
                 </Grid12>
             </Grid6>
         </Grid12>

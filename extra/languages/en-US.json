@@ -10,10 +10,12 @@
   "celsius": "°C",
   "fahrenheit": "°F",
   "wind": "Wind",
-  "windUnit": "m/h",
+  "windUnit": "m/s",
   "humidity": "Humidity",
   "pressure": "Pressure",
   "notFoundLocation": "Location not found",
   "findLocation": "Find your location",
-  "loading": "Loading..."
+  "loading": "Loading...",
+  "changeUnit": "Change unit",
+  "changeLanguage": "Change language"
 }

@@ -7,7 +7,6 @@ import Document, {
     NextScript,
     DocumentContext
 } from 'next/document'
-import {ServerStyleSheet} from 'styled-components'
 
 const defaultTitle = 'Weather Forecast';
 const defaultDescription = 'Project consumes Bing API, OpenCageData, OpenWeatherMap.';
@@ -15,38 +14,13 @@ const defaultOGURL = 'https://weather.allanmonth.vercel.app/';
 const defaultOGImage = 'https://i.gyazo.com/c65e613d70215054da3e2ce1593968c9.png';
 
 export default class MyDocument extends Document {
-    // static async getInitialProps(
-    //     ctx: DocumentContext
-    // ) {
-    //     const sheet = new ServerStyleSheet()
-    //     const originalRenderPage = ctx.renderPage
-    //     try {
-    //         ctx.renderPage = () =>
-    //             originalRenderPage({
-    //                 // eslint-disable-next-line react/display-name
-    //                 enhanceApp: App => props => sheet.collectStyles(<App {...props} />)
-    //             })
-    //         const initialProps = await Document.getInitialProps(ctx)
-    //         return {
-    //             ...initialProps,
-    //             styles: (
-    //                 <>
-    //                     {initialProps.styles}
-    //                     {sheet.getStyleElement()}
-    //                 </>
-    //             )
-    //         }
-    //     } finally {
-    //         sheet.seal()
-    //     }
-    // }
 
     static async getInitialProps(ctx: DocumentContext) {
         const initialProps = await Document.getInitialProps(ctx)
     
         return initialProps
       }
-      
+
     render() {
         return (
             <Html lang={'en'}>
