@@ -29,7 +29,7 @@ export default class MyDocument extends Document {
                     <title>{defaultTitle}</title>
                     <meta name="description" content={ defaultDescription} />
                     <meta name="viewport" content="width=device-width, initial-scale=1" />
-                    <link rel="shortcut icon" href="/favicon.ico?" type="image/x-icon"/>
+                    <link rel="shortcut icon" href="/icon.png" />
                     <meta name="msapplication-TileColor" content="#1A1E22" />
                     <meta name="theme-color" content="#0070f3" />
                     <meta property="og:url" content={defaultOGURL} />
