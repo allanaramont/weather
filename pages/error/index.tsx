@@ -19,7 +19,7 @@ import intl from "react-intl-universal";
 //Constants
 import {initRouter} from "../../extra/constants/router";
 
-export default function ErrorPage (props:errorPageInterface){
+export default function ErrorPage (props:errorPageInterface): JSX.Element{
     const size = useWindowSize()
     const router = useRouter()
 

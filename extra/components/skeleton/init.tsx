@@ -6,7 +6,7 @@ import {alpha} from "@material-ui/core/styles";
 //Components
 import {Grid12, Grid6} from "../common/grid";
 
-export function SkeletonInit(){
+export function SkeletonInit(): JSX.Element{
     const theme = useTheme();
     return(
         <>
