@@ -14,6 +14,7 @@ import { useFindLocationCSS } from "../style/findLocation";
 
 //Hooks
 import {useWindowSize} from "../../../../hooks/useWindowsSize";
+import {useNavigator} from "../../../../hooks/useNavigator";
 
 //Icons
  import SearchIcon from '@material-ui/icons/Search';
@@ -27,7 +28,8 @@ import { LanguageComponent } from "../../../common/language";
 export function FindLocation(props:{setWeather:Dispatch<SetStateAction<Array<any>>>}){
     const classes = useFindLocationCSS();
     const theme = useTheme();
-    const language = intl.getInitOptions().currentLocale;
+    const navigatorT = useNavigator();
+    const language = intl.getInitOptions().currentLocale ?? navigatorT;
     const size = useWindowSize();
     const [city,setCity] = useState('');
     const [name,setName] = useState('');
