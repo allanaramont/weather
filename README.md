@@ -22,7 +22,7 @@ Se clicar na temperatura, ele altera entre celsius e fahrenheit.
 
 ### Acessando a aplicação
 
-[Clique aqui para acessar](weather.desenvbr.com)
+[Clique aqui para acessar](https://weather.desenvbr.com)
 
 
 ## Configurando ambiente
