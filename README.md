@@ -1,51 +1,36 @@
 
-# Weather Forecast
+# Clima tempo
+
+![weather](.github/weather.png)
 
 Projeto que consiste em consumir as API`s do OpenCageData, OpenWeatherMap e retornar o clima.
 
+## :rocket: Tecnologias
 
-## Sobre o projeto
-
-Como dito anteriormente, este projeto consome a API do OpenCageData, OpenWeatherMap. O usuário permite a localização via geolocation ou digita o local que deseja saber o tempo e a aplicação retorna os dados do local procurada.
-Disponível em 2 idiomas: Português e Inglês.
-Disponível em 2 medidas: Fahrenheit e Celsius.
-A cor muda de acordo com a temperatura.
-
-## Demonstração
-
-Veja abaixo uma foto do projeto.
-[![Image from Gyazo](https://i.gyazo.com/fa7a177cb3e24f202b33480e45b92281.png)](https://gyazo.com/)
-
-Você pode conferir o resultado final em: https://weather.allanmonth.vercel.app/
-
-
-## Objetivo do projeto
-
-Foi realizado este projeto com o intuito de aplicar os conhecimentos sobre requisições HTTPS dos serviços listados abaixo. Além disso, foi desenvolvido para aperfeiçoar os conhecimentos em Next.js e TypeScript.
-
-
-## Serviço utilizado
-
-Para a realização desse projeto foram utilizadas as seguintes serviços:
-- [OpenCageData API](https://opencagedata.com/api)
-- [OpenWeatherMap API](https://openweathermap.org/api)
-
-
-## Stack utilizada
-
-Para a realização desse projeto foram utilizadas as seguintes tecnologias/linguagens:
 - [Next.js](https://nextjs.org/)
 - [React Toastify](https://fkhadra.github.io/react-toastify/introduction)
 - [Styled Components](https://www.styled-components.com/)
 - [React Intl Universal](https://github.com/alibaba/react-intl-universal)
 
+## Fluxo da aplicação
 
-## Rodando localmente
+Projeto que consome a [OpenCageData API](https://opencagedata.com/api) para buscar a localização do usuário, porém precisa liberar o acesso do navegador, e o uso da [OpenWeatherMap API](https://openweathermap.org/api) que retorna o tempo e alguns detalhes no local determinando.
+Pode ser pesquisado o local que deseja saber o clima ou clicar no ícone de localização no lado esquerdo, que ira buscar sua localização.
+Pode ser utilizado em Inglês ou em Português.
+A cor altera de acordo com a temperatura.
+Se clicar na temperatura, ele altera entre celsius e fahrenheit.
+
+### Acessando a aplicação
+
+[Clique aqui para acessar](weather.desenvbr.com)
+
+
+## Configurando ambiente
 
 Clone o projeto
 
 ```bash
-  git clone https://github.com/allanmonth/weather
+  git clone https://github.com/desenvbr/weather
 ```
 
 Entre no diretório do projeto
@@ -66,3 +51,12 @@ Inicie o servidor
   yarn dev
 ```
 Abra http://localhost:3000 no seu navegador para visualizar o projeto.
+
+### API
+
+Para a realização desse projeto foram utilizadas as seguintes serviços:
+- [OpenCageData API](https://opencagedata.com/api)
+- [OpenWeatherMap API](https://openweathermap.org/api)
+
+
+
